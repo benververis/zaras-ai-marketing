@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Consent & Opt-In Disclosure — Zaras AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Fraunces:opsz,wght@9..144,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #FAFAF8; --surface: #FFFFFF; --text: #1A1A1A;
+      --text-secondary: #5A5A58; --accent: #2563EB; --border: #E5E5E3;
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Fraunces', serif; font-weight: 600;
+      font-size: 1.25rem; color: var(--text); text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    .content {
+      max-width: 720px; margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+    h1 {
+      font-family: 'Fraunces', serif; font-size: 2rem;
+      font-weight: 600; margin-bottom: 8px;
+    }
+    .updated { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 40px; }
+    h2 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; color: var(--text-secondary); font-size: 0.92rem; }
+    a { color: var(--accent); }
+    ul { margin: 0 0 16px 24px; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; }
+    .consent-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .consent-card .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .consent-card .checkbox-mock {
+      width: 20px; height: 20px; min-width: 20px;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .consent-card .checkbox-mock::after {
+      content: '\2713';
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .consent-card .checkbox-label {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .message-example {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .message-example .msg-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <nav><a href="index.html" class="logo">Zaras <span>AI</span></a></nav>
+  <div class="content">
+    <h1>SMS Consent &amp; Opt-In Disclosure</h1>
+    <p class="updated">Last updated: April 3, 2026</p>
+
+    <h2>1. Overview</h2>
+    <p>Zaras AI is a field service management platform used by small businesses (plumbing, HVAC, electrical, home services) to manage scheduling, dispatch, estimates, and invoicing. As part of the platform, businesses may send transactional SMS messages to their customers regarding scheduled services. This page describes how end-user consent is collected and managed.</p>
+
+    <h2>2. How Consent Is Collected</h2>
+    <p>Zaras AI is a platform provider (ISV). Individual field service businesses are the message senders. Zaras AI facilitates message delivery on behalf of these businesses via Twilio.</p>
+    <p>Businesses using Zaras AI collect SMS consent from their customers during the service intake process. When a business adds a customer to their workspace, or when a customer engages with the business through the platform, an SMS opt-in checkbox is presented with the following disclosure:</p>
+
+    <div class="consent-card">
+      <div class="checkbox-row">
+        <div class="checkbox-mock"></div>
+        <div class="checkbox-label">
+          "I agree to receive automated SMS messages from [Business Name], including appointment reminders, job updates, and service communications. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to cancel. View our <a href="https://www.zaras.ai/privacy.html">Privacy Policy</a> &amp; <a href="https://www.zaras.ai/terms.html">Terms of Service</a>."
+        </div>
+      </div>
+    </div>
+
+    <p>The checkbox is unchecked by default. The customer must actively check it to consent.</p>
+
+    <h2>3. Types of Messages Sent</h2>
+    <p>Messages sent through Zaras AI are strictly service-related and transactional. They include:</p>
+    <ul>
+      <li>Appointment reminders and scheduling confirmations</li>
+      <li>Job status updates (e.g., technician en route notifications)</li>
+      <li>Estimate notifications with review links</li>
+      <li>Invoice alerts and payment confirmations</li>
+      <li>Service rescheduling notices</li>
+    </ul>
+    <p>Below are examples of the types of messages a customer might receive:</p>
+
+    <div class="message-example">
+      <div class="msg-label">Appointment Reminder</div>
+      Hi {name}, this is a reminder that your service appointment with {business} is scheduled for tomorrow at 10:00 AM. Reply STOP to opt out.
+    </div>
+    <div class="message-example">
+      <div class="msg-label">Technician En Route</div>
+      {business}: Your technician {tech} is on the way and should arrive in approximately 30 minutes. Reply STOP to opt out.
+    </div>
+    <div class="message-example">
+      <div class="msg-label">Estimate Notification</div>
+      {business}: Your estimate #{number} for {amount} is ready to review: {link}. Reply STOP to unsubscribe.
+    </div>
+    <div class="message-example">
+      <div class="msg-label">Invoice Alert</div>
+      {business}: Invoice #{number} for {amount} has been sent to your email. Thank you for your business! Reply STOP to unsubscribe.
+    </div>
+    <div class="message-example">
+      <div class="msg-label">Rescheduling Notice</div>
+      {business}: Your service appointment has been rescheduled to {date} at {time}. Reply HELP for support or STOP to opt out.
+    </div>
+
+    <h2>4. Opt-Out &amp; Help</h2>
+    <p>Recipients may opt out at any time by replying STOP (or CANCEL, END, QUIT, UNSUBSCRIBE, OPTOUT) to any message. After opting out, a single confirmation message is sent and no further messages will be delivered.</p>
+    <p>Recipients may reply HELP to any message to receive support contact information.</p>
+
+    <h2>5. Data Privacy</h2>
+    <p>We do not sell, rent, or share end-user phone numbers or SMS consent data with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties.</p>
+    <p>For complete details on how we collect, use, and protect your information, see our <a href="https://www.zaras.ai/privacy.html">Privacy Policy</a> and <a href="https://www.zaras.ai/terms.html">Terms of Service</a>.</p>
+
+    <h2>6. Contact</h2>
+    <p>Questions about SMS messaging on the Zaras AI platform? Contact us at <a href="mailto:support@zaras.ai">support@zaras.ai</a>.</p>
+    <p style="margin-top: 8px;">ZARAS AI LLC<br>Miami, Florida, United States</p>
+  </div>
+</body>
+</html>
