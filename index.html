@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zaras AI — Field Service Management for Small Businesses</title>
   <meta name="description" content="Zaras AI is a field service management platform built for small businesses. Manage scheduling, dispatch, estimates, invoicing, and customer communications in one place.">
+  <meta name="theme-color" content="#0b0d0f">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-rounded-white-on-brand-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-rounded-white-on-brand-192.png">
+  <meta property="og:image" content="https://www.zaras.ai/assets/social/avatar-rounded-white-on-brand-400.png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta name="twitter:image" content="https://www.zaras.ai/assets/social/avatar-rounded-white-on-brand-400.png">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
@@ -12,17 +23,24 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #FAFAF8;
-      --surface: #FFFFFF;
-      --text: #1A1A1A;
-      --text-secondary: #5A5A58;
-      --accent: #2563EB;
-      --accent-light: #EFF6FF;
-      --accent-dark: #1D4ED8;
-      --border: #E5E5E3;
-      --green: #16A34A;
-      --green-light: #F0FDF4;
+      --bg: #0b0d0f;
+      --bg-secondary: #0f1215;
+      --bg-elevated: #1a1e24;
+      --bg-card-hover: #181c21;
+      --surface: #13161a;
+      --text: #e8e6e1;
+      --text-secondary: #9b9a95;
+      --text-muted: #7a7975;
+      --accent: #22c55e;
+      --accent-light: rgba(34, 197, 94, 0.12);
+      --accent-dark: #16a34a;
+      --border: #1e2229;
+      --border-medium: #2a2f38;
+      --green: #22c55e;
+      --green-light: rgba(34, 197, 94, 0.1);
       --radius: 12px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+      --shadow-elevated: 0 4px 24px rgba(0,0,0,0.5);
     }
 
     html { scroll-behavior: smooth; }
@@ -30,10 +48,20 @@
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg);
+      background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+
+    ::selection { background: #22c55e; color: #fff; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #2a2f38; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3a3f48; }
+    html { scrollbar-color: #2a2f38 var(--bg); }
 
     /* NAV */
     nav {
@@ -42,7 +70,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(250, 250, 248, 0.85);
+      background: rgba(26, 30, 36, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -55,14 +83,12 @@
       align-items: center;
       justify-content: space-between;
     }
-    .logo {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: var(--text);
+    .logo, .footer-logo {
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
     }
-    .logo span { color: var(--accent); }
+    .logo img, .footer-logo img { display: block; }
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a {
       font-size: 0.9rem;
@@ -90,7 +116,7 @@
       background: var(--accent);
       color: #fff;
     }
-    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:hover { background: var(--accent-dark); box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
     .btn-outline {
       background: transparent;
       color: var(--accent);
@@ -119,6 +145,7 @@
       border-radius: 100px;
       margin-bottom: 24px;
       letter-spacing: 0.02em;
+      border: 1px solid rgba(34, 197, 94, 0.3);
     }
     @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
@@ -193,10 +220,12 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px;
-      transition: box-shadow 0.2s;
+      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
     .feature-card:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-card);
     }
     .feature-icon {
       width: 40px;
@@ -222,7 +251,7 @@
 
     /* PRICING */
     .pricing-section {
-      background: var(--surface);
+      background: var(--bg-secondary);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -233,10 +262,12 @@
       max-width: 860px;
     }
     .pricing-card {
+      background: var(--surface);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       padding: 32px;
       position: relative;
+      transition: background-color 0.2s, border-color 0.2s;
     }
     .pricing-card.featured {
       border-color: var(--accent);
@@ -315,6 +346,12 @@
       border-radius: var(--radius);
       padding: 24px;
       text-align: center;
+      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .audience-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-card);
     }
     .audience-card .emoji {
       font-size: 2rem;
@@ -336,6 +373,8 @@
       padding: 80px 24px 100px;
       max-width: 600px;
       margin: 0 auto;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.06), rgba(34, 197, 94, 0.02));
+      border-radius: var(--radius);
     }
     .cta-section h2 {
       font-family: 'Fraunces', serif;
@@ -366,7 +405,7 @@
     .footer-brand {
       max-width: 300px;
     }
-    .footer-brand .logo {
+    .footer-brand .footer-logo {
       display: inline-block;
       margin-bottom: 8px;
     }
@@ -402,7 +441,7 @@
       padding-top: 20px;
       border-top: 1px solid var(--border);
       font-size: 0.78rem;
-      color: var(--text-secondary);
+      color: var(--text-muted);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -429,7 +468,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo">Zaras <span>AI</span></a>
+      <a href="https://www.zaras.ai/index.html" class="logo"><img src="assets/horizontal/zaras-horizontal-white.svg" alt="Zaras AI" height="28"></a>
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
@@ -570,7 +609,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="logo">Zaras <span>AI</span></a>
+        <a href="https://www.zaras.ai/index.html" class="footer-logo"><img src="assets/horizontal/zaras-horizontal-white.svg" alt="Zaras AI" height="24"></a>
         <p>Field service management software built for small businesses. Scheduling, dispatch, estimates, and more.</p>
         <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 8px;">Miami, Florida</p>
       </div>

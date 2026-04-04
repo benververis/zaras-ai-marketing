@@ -4,20 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Zaras AI</title>
+  <meta name="theme-color" content="#0b0d0f">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-rounded-white-on-brand-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-rounded-white-on-brand-192.png">
+  <meta property="og:image" content="https://www.zaras.ai/assets/social/avatar-rounded-white-on-brand-400.png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta name="twitter:image" content="https://www.zaras.ai/assets/social/avatar-rounded-white-on-brand-400.png">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Fraunces:opsz,wght@9..144,300..700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #FAFAF8; --surface: #FFFFFF; --text: #1A1A1A;
-      --text-secondary: #5A5A58; --accent: #2563EB; --border: #E5E5E3;
+      --bg: #0b0d0f; --surface: #13161a; --text: #e8e6e1;
+      --text-secondary: #9b9a95; --accent: #22c55e; --border: #1e2229;
     }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
-      background: var(--bg); color: var(--text);
+      background: var(--bg);
+      background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
+      color: var(--text);
       line-height: 1.7; -webkit-font-smoothing: antialiased;
     }
+    ::selection { background: #22c55e; color: #fff; }
+    html { scrollbar-color: #2a2f38 var(--bg); }
     nav {
       border-bottom: 1px solid var(--border);
       padding: 0 24px; height: 64px;
@@ -25,10 +40,11 @@
       max-width: 1120px; margin: 0 auto;
     }
     .logo {
-      font-family: 'Fraunces', serif; font-weight: 600;
-      font-size: 1.25rem; color: var(--text); text-decoration: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
     }
-    .logo span { color: var(--accent); }
+    .logo img { display: block; }
     .content {
       max-width: 720px; margin: 0 auto;
       padding: 60px 24px 100px;
@@ -44,7 +60,7 @@
   </style>
 </head>
 <body>
-  <nav><a href="index.html" class="logo">Zaras <span>AI</span></a></nav>
+  <nav><a href="https://www.zaras.ai/index.html" class="logo"><img src="assets/horizontal/zaras-horizontal-white.svg" alt="Zaras AI" height="28"></a></nav>
   <div class="content">
     <h1>Privacy Policy</h1>
     <p class="updated">Last updated: April 3, 2026</p>

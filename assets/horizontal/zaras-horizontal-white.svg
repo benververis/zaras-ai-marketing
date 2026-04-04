@@ -1,0 +1,14 @@
+<svg viewBox="0 0 273.4 52.0" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700&amp;display=swap");</style></defs>
+  
+  <g transform="translate(0,2) scale(0.48)">
+    <path d="M0,0 L70,0 L70,18 L0,18Z" fill="#FFFFFF"/>
+    <path d="M52,18 L70,18 L18,82 L0,82Z" fill="#FFFFFF"/>
+    <path d="M0,82 L58,82 L58,100 L0,100Z" fill="#FFFFFF"/>
+    <path d="M32,100 L50,100 L108,0 L90,0Z" fill="#FFFFFF"/>
+    <path d="M100,10 L118,10 L118,100 L100,100Z" fill="#FFFFFF"/>
+    <path d="M74,52 L118,52 L118,64 L78,64Z" fill="#FFFFFF"/>
+</g>
+  <text x="78.4" y="34.56" font-family="Outfit, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" letter-spacing="1.5">ZARAS</text>
+  <text x="216.4" y="34.56" font-family="Outfit, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" letter-spacing="1.5">AI</text>
+</svg>
